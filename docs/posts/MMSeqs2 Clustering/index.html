@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Ruixuan Zhang">
+<meta name="dcterms.date" content="2023-07-31">
 
-<title>ChaoticNeutral</title>
+<title>ChaoticNeutral - MMSeqs2 Clustering</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -61,50 +61,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">ChaoticNeutral</span>
     </a>
   </div>
@@ -115,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
+    <a class="nav-link" href="../../about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -138,198 +107,99 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">ChaoticNeutral</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">MMSeqs2 Clustering</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">MMseqs2</div>
+                <div class="quarto-category">sequence similarity</div>
+              </div>
+                  </div>
   </div>
     
   
   <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Ruixuan Zhang </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 31, 2023</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="MMseqs2">MMseqs2 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(1)</span></div><div class="category" data-category="adjacent matrix">adjacent matrix <span class="quarto-category-count">(1)</span></div><div class="category" data-category="analysis">analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="code">code <span class="quarto-category-count">(1)</span></div><div class="category" data-category="news">news <span class="quarto-category-count">(2)</span></div><div class="category" data-category="phylogeny">phylogeny <span class="quarto-category-count">(1)</span></div><div class="category" data-category="sequence similarity">sequence similarity <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
+<p><img src="https://raw.githubusercontent.com/soedinglab/mmseqs2/master/.github/mmseqs2_logo.png" class="img-fluid" width="599"></p>
+<section id="前言" class="level2">
+<h2 class="anchored" data-anchor-id="前言">前言</h2>
+<p>MMseq2 是由 <strong>Martin Steinegger</strong> 和 <strong>Johannes Söding</strong> 开发的序列搜索软件，声称将 PSI-BLAST 的速度提升了 400 倍 ( <a href="https://www-nature-com.kyoto-u.idm.oclc.org/articles/nbt.3988">paper</a> ). 前者同时也是结构比对软件 FoldSeek 的作者。而后者是 HH-suite, Clustal Omega 等软件的作者。</p>
+</section>
+<section id="简介" class="level2">
+<h2 class="anchored" data-anchor-id="简介">简介</h2>
+<p>搜索相似的序列，"相似"这一特征在 mmseqs 里被定义为寻找相同的位置的 k-mer 。比如，如果两条序列完全一样，那么它们之间的 dot-plot 应该完美落在对角线上。落在对角线上的 k-mer 数量越长越多，则越像。</p>
+<p>k-mer matching 这一步骤是核心。如下图，两条序列部分match，中间存在gap 的情况会产生两条"对角线"方向的 k-mer match，考虑越多这样的 k-mer match， 比对的就越准确，但是耗时就更长。而考虑越少的 match，时间会更短，但是由于考虑的情况有限，match 的分数可能无法超过阈值，得到的结果就不够灵敏。实际操作中 <code>-s</code> 参数就是在调节这一过程，默认为 <code>-s 5.7</code> .</p>
+<p>Github 文档中推荐的做法是 <code>--start-sens 1 --sens-steps 3 -s 7</code> 这一个 option 中， <code>--start-sens 1</code> 指从灵敏度为 1 开始尝试 。此时结果最不灵敏，但是最快，得到最保守的match)。 <code>sens-step 3</code> 指每次增加 3 格灵敏度，即，从 <code>-s 1</code> 提高至 <code>-s 4</code> 搜索，再到 <code>-s 7</code> 。通过逐渐增加灵敏度，既减少了在超级保守的序列上所花的时间，也保证了灵敏度。在对目标数据库搜索之前，需要先通过 <code>creatdb</code> 命令将数据库转变为 mmseq2 能使用的类型，然后就可以通过 以下命令在目标数据库中搜索查询序列的信息。</p>
+</section>
+<section id="对序列进行聚类" class="level2">
+<h2 class="anchored" data-anchor-id="对序列进行聚类">对序列进行聚类</h2>
+<blockquote class="blockquote">
+<p>目标：将 identity 90% 以上，coverge 在 80% 的相似序列聚在一起</p>
+</blockquote>
+<section id="流程" class="level3">
+<h3 class="anchored" data-anchor-id="流程">流程</h3>
+<pre class="{text}"><code># 1. 将 fasta 文件转换为 mmseq2 database 文件 (DB)
+mmseqs createdb examples/DB.fasta DB
+
+# 2. cluster -&gt; DB_clu，在这一步设置 coverage 计算模式，min coverage 和 min-seq-id
+mmseqs cluster DB DB_clu tmp --cov-mode 0 -c 0.8 --min-seq-id 0.9 --threads 8
+
+# 3. 提取 cluster 信息至 DB_clu.tsv
+mmseqs createtsv DB DB DB_clu DB_clu.tsv
+
+# 4. 提取每个 cluster 的代表序列
+mmseqs createseqfiledb DB DB_clu DB_clu_seq
+mmseqs result2flat DB DB DB_clu_seq DB_clu_seq.fasta</code></pre>
+</section>
+<section id="更新-cluster" class="level3">
+<h3 class="anchored" data-anchor-id="更新-cluster">更新 cluster</h3>
+<p>如果每回有新的序列都要重新跑一遍 clustering 过程也太折磨了，如何在不重新聚类的基础上，为新增序列添加 cluster id 呢？</p>
+<pre class="{text}"><code># 1. 假设 DB_old 是由 DB_old.fasta 创建的 database
+mmseqs createdb DB_old.fasta DB_old
+mmseqs cluster DB_old DB_old_clu tmp
+
+# 2. 用更新后的数据来更新 DB_old 至 DB_new 
+# 将更新后的数据也转位 DB 格式的文件 , 此时的 DB.fasta = DB_old.fasta + new_data.fasta
+mmseqs createdb DB.fasta DB_new 
+mmseqs clusterupdate DB_old DB_new DB_old_clu DB_new_updated DB_update_clu tmp
+
+# DB_update_clu 内包含新的 DB_new 数据库中的 cluster 信息
+# clusterupdate 产生新的数据库 DB_new_updated 这个数据库包含和上个版本一致的 identifier
+
+# 3. extract tsv -&gt; extract fasta can be done ...</code></pre>
 
 
+</section>
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="news,code,analysis" data-listing-date-sort="1690729200000" data-listing-file-modified-sort="1690788080700" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<div class="thumbnail">
-<p><a href="./posts/post-with-code/index.html"> <img src="./posts/post-with-code/image.jpg" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/post-with-code/index.html">
-<h3 class="no-anchor listing-title">
-Post With Code
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('news'); return false;">
-news
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
-code
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('analysis'); return false;">
-analysis
-</div>
-</div>
-<a href="./posts/post-with-code/index.html">
-<div class="listing-description">
-This is a post with executable code.
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/post-with-code/index.html">
-<div class="listing-date">
-Jul 31, 2023
-</div>
-<div class="listing-author">
-Ruixuan
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="R,phylogeny,adjacent matrix" data-listing-date-sort="1690729200000" data-listing-file-modified-sort="1690788001813" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<div class="thumbnail">
-<p><a href="./posts/My-new-post/index.html"> <img src="./posts/My-new-post/image.jpg" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/My-new-post/index.html">
-<h3 class="no-anchor listing-title">
-My New Post
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('phylogeny'); return false;">
-phylogeny
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('adjacent matrix'); return false;">
-adjacent matrix
-</div>
-</div>
-<a href="./posts/My-new-post/index.html">
-<div class="listing-description">
-In bioinformatics, there are many pairwise comparison, such as Average Nucleotide Identity…<code></code><code></code>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/My-new-post/index.html">
-<div class="listing-date">
-Jul 31, 2023
-</div>
-<div class="listing-author">
-Ruixuan Zhang
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="MMseqs2,sequence similarity" data-listing-date-sort="1690729200000" data-listing-file-modified-sort="1690788867082" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<div class="thumbnail">
-<p><a href="./posts/MMSeqs2 Clustering/index.html"> <img src="./posts/MMSeqs2 Clustering/mmseqs2_logo.png" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/MMSeqs2 Clustering/index.html">
-<h3 class="no-anchor listing-title">
-MMSeqs2 Clustering
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('MMseqs2'); return false;">
-MMseqs2
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('sequence similarity'); return false;">
-sequence similarity
-</div>
-</div>
-<a href="./posts/MMSeqs2 Clustering/index.html">
-<div class="listing-description">
-MMseq2 是由 <strong>Martin Steinegger</strong> 和 <strong>Johannes Söding</strong> 开发的序列搜索软件，声称将 PSI-BLAST 的速度提升了 400 倍 ( paper ). 前者同时也是结构比对软件 FoldSeek 的作者。而后者是 HH-suite, Clustal Omega 等软件的作者。
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/MMSeqs2 Clustering/index.html">
-<div class="listing-date">
-Jul 31, 2023
-</div>
-<div class="listing-author">
-Ruixuan Zhang
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="news" data-listing-date-sort="1690470000000" data-listing-file-modified-sort="1690788120719" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<div class="thumbnail">
-<p><a href="./posts/welcome/index.html"> <p class="card-img-top"><img src="posts/welcome/thumbnail.jpg"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/welcome/index.html">
-<h3 class="no-anchor listing-title">
-Welcome To My Blog
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('news'); return false;">
-news
-</div>
-</div>
-<a href="./posts/welcome/index.html">
-<div class="listing-description">
-This is the first post in a Quarto blog. Welcome!
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/welcome/index.html">
-<div class="listing-date">
-Jul 28, 2023
-</div>
-<div class="listing-author">
-Ruixuan Zhang
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

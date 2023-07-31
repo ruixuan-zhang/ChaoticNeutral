@@ -1,0 +1,62 @@
+---
+title: "MMSeqs2 Clustering"
+author: "Ruixuan Zhang"
+date: "2023-07-31"
+categories: [MMseqs2, sequence similarity]
+image: "mmseqs2_logo.png"
+---
+
+![](https://raw.githubusercontent.com/soedinglab/mmseqs2/master/.github/mmseqs2_logo.png){width="599"}
+
+## 前言
+
+MMseq2 是由 **Martin Steinegger** 和 **Johannes Söding** 开发的序列搜索软件，声称将 PSI-BLAST 的速度提升了 400 倍 ( [paper](https://www-nature-com.kyoto-u.idm.oclc.org/articles/nbt.3988) ). 前者同时也是结构比对软件 FoldSeek 的作者。而后者是 HH-suite, Clustal Omega 等软件的作者。
+
+## 简介
+
+搜索相似的序列，\"相似\"这一特征在 mmseqs 里被定义为寻找相同的位置的 k-mer 。比如，如果两条序列完全一样，那么它们之间的 dot-plot 应该完美落在对角线上。落在对角线上的 k-mer 数量越长越多，则越像。
+
+k-mer matching 这一步骤是核心。如下图，两条序列部分match，中间存在gap 的情况会产生两条\"对角线\"方向的 k-mer match，考虑越多这样的 k-mer match， 比对的就越准确，但是耗时就更长。而考虑越少的 match，时间会更短，但是由于考虑的情况有限，match 的分数可能无法超过阈值，得到的结果就不够灵敏。实际操作中 `-s` 参数就是在调节这一过程，默认为 `-s 5.7` .
+
+Github 文档中推荐的做法是 `--start-sens 1 --sens-steps 3 -s 7` 这一个 option 中， `--start-sens 1` 指从灵敏度为 1 开始尝试 。此时结果最不灵敏，但是最快，得到最保守的match)。 `sens-step 3` 指每次增加 3 格灵敏度，即，从 `-s 1` 提高至 `-s 4` 搜索，再到 `-s 7` 。通过逐渐增加灵敏度，既减少了在超级保守的序列上所花的时间，也保证了灵敏度。在对目标数据库搜索之前，需要先通过 `creatdb` 命令将数据库转变为 mmseq2 能使用的类型，然后就可以通过 以下命令在目标数据库中搜索查询序列的信息。
+
+## 对序列进行聚类
+
+> 目标：将 identity 90% 以上，coverge 在 80% 的相似序列聚在一起
+
+### 流程
+
+```{bash}
+# 1. 将 fasta 文件转换为 mmseq2 database 文件 (DB)
+mmseqs createdb examples/DB.fasta DB
+
+# 2. cluster -> DB_clu，在这一步设置 coverage 计算模式，min coverage 和 min-seq-id
+mmseqs cluster DB DB_clu tmp --cov-mode 0 -c 0.8 --min-seq-id 0.9 --threads 8
+
+# 3. 提取 cluster 信息至 DB_clu.tsv
+mmseqs createtsv DB DB DB_clu DB_clu.tsv
+
+# 4. 提取每个 cluster 的代表序列
+mmseqs createseqfiledb DB DB_clu DB_clu_seq
+mmseqs result2flat DB DB DB_clu_seq DB_clu_seq.fasta
+```
+
+### 更新 cluster 
+
+如果每回有新的序列都要重新跑一遍 clustering 过程也太折磨了，如何在不重新聚类的基础上，为新增序列添加 cluster id 呢？
+
+```{bash}
+# 1. 假设 DB_old 是由 DB_old.fasta 创建的 database
+mmseqs createdb DB_old.fasta DB_old
+mmseqs cluster DB_old DB_old_clu tmp
+
+# 2. 用更新后的数据来更新 DB_old 至 DB_new 
+# 将更新后的数据也转位 DB 格式的文件 , 此时的 DB.fasta = DB_old.fasta + new_data.fasta
+mmseqs createdb DB.fasta DB_new 
+mmseqs clusterupdate DB_old DB_new DB_old_clu DB_new_updated DB_update_clu tmp
+
+# DB_update_clu 内包含新的 DB_new 数据库中的 cluster 信息
+# clusterupdate 产生新的数据库 DB_new_updated 这个数据库包含和上个版本一致的 identifier
+
+# 3. extract tsv -> extract fasta can be done ...
+```
