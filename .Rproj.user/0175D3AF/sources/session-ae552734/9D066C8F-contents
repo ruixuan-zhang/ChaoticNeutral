@@ -1,0 +1,39 @@
+---
+title: "My New Post"
+author: "Harlow Malloc"
+date: "2023-07-31"
+categories: [R, phylogeny, adjacent matrix]
+image: "image.jpg"
+---
+
+### Preface
+
+In bioinformatics, there are many pairwise comparison, such as Average Nucleotide Identity (ANI), Tetra-nucleotide similarity, patristic distance between tips of a tree. In this case, visualizing these data by heat-map with some clustering (like hierarchical cluster by `pheatmap` in `R` ) is useful.
+
+### Main
+
+**Pairwise value matrix**
+
+A heat-map in this case is basically a matrix whose rownames and colnames are identical (e.g. your list of virus, bacteria, etc \...) and the values in the table are ANI, TETRA, etc. Color is used to represent the value / intensity / etc \...
+
+|           | Species 1 | Species 2 |
+|-----------|-----------|-----------|
+| Species 1 | 1         | 0.9       |
+| Species 2 | 0.9       | 1         |
+| ...       | ...       | ...       |
+
+**Heatmap** is a good way to visualize the general trend but **sometimes quantification of these values is needed**, for example, to see the distribution of ANI values, such as 75%, 25%, mean. Thus, we need to generate a table of their pairwise relationships like table below.
+
+| Query     |   Target  | Value     |
+|-----------|-----------|-----------|
+| Species 1 | Species 1 | 0.9       |
+| Species 2 | Species 2 | 1         |
+| ...       | ...       | ...       |
+
+**Molten matrix by R**
+
+Then, this table is easier to be handled and annotated as below. Such as we can know whether this value is generated from a interfamily comparison or a intrafamily comparison. 
+
+
+
+
