@@ -1,14 +1,14 @@
 {
-    "id": "1EECD3FA",
-    "path": "~/Project/Github/ChaoticNeutral/index.qmd",
-    "project_path": "index.qmd",
+    "id": "7B602E33",
+    "path": "~/Project/Github/ChaoticNeutral/posts/MMSeqs2 Clustering/index.qmd",
+    "project_path": "posts/MMSeqs2 Clustering/index.qmd",
     "type": "quarto_markdown",
-    "hash": "0",
+    "hash": "1743710975",
     "contents": "",
     "dirty": false,
-    "created": 1690784789226.0,
+    "created": 1690788348670.0,
     "source_on_save": false,
-    "relative_order": 1,
+    "relative_order": 3,
     "properties": {
         "rmdVisualMode": "true",
         "rmdVisualWrapConfigured": "true",
@@ -16,16 +16,16 @@
         "Source": "Source",
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
-        "cursorPosition": "0,0",
+        "cursorPosition": "28,0",
         "scrollLine": "0",
-        "rmdVisualModeLocation": "190:0"
+        "rmdVisualModeLocation": "1432:1112.5"
     },
     "folds": "",
-    "lastKnownWriteTime": 1690784792,
+    "lastKnownWriteTime": 1690788867,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1690784792821,
+    "last_content_update": 1690788867086,
     "read_only": false,
     "read_only_alternatives": []
 }
