@@ -3,7 +3,7 @@
     "path": "~/Project/Github/ChaoticNeutral/posts/My-new-post/index.qmd",
     "project_path": "posts/My-new-post/index.qmd",
     "type": "quarto_markdown",
-    "hash": "0",
+    "hash": "2754771017",
     "contents": "",
     "dirty": false,
     "created": 1690785960669.0,
@@ -17,15 +17,15 @@
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
         "rmdVisualModeLocation": "715:112.5",
-        "cursorPosition": "8,11",
+        "cursorPosition": "2,22",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1690786597,
+    "lastKnownWriteTime": 1690788001,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1690786597589,
+    "last_content_update": 1690788001816,
     "read_only": false,
     "read_only_alternatives": []
 }
