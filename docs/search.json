@@ -1,10 +1,17 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "ChaoticNeutral",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "Post With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nJul 31, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nMy New Post\n\n\n\n\n\n\n\nR\n\n\nphylogeny\n\n\nadjacent matrix\n\n\n\n\n\n\n\n\n\n\n\nJul 31, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJul 28, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "Hello World!\nMy name is Ruixuan Zhang (张 瑞轩), a Ph.D. student in Kyoto University, a member belonging to Ogata Lab.\nCurrently, I am hired as a JSPS DC2 Research Fellow.\nResearch Interests\nI am interested in host-virus interaction and the evolution behind their billion-year war. I use multi-omics to reveal the virus infection strategy.\nScholarship and Grants"
+  },
+  {
+    "objectID": "about.html#about",
+    "href": "about.html#about",
+    "title": "About",
+    "section": "",
+    "text": "Hello World!\nMy name is Ruixuan Zhang (张 瑞轩), a Ph.D. student in Kyoto University, a member belonging to Ogata Lab.\nCurrently, I am hired as a JSPS DC2 Research Fellow.\nResearch Interests\nI am interested in host-virus interaction and the evolution behind their billion-year war. I use multi-omics to reveal the virus infection strategy.\nScholarship and Grants"
   },
   {
     "objectID": "posts/welcome/index.html",
@@ -21,13 +28,6 @@
     "text": "This is a post with executable code.\n\n1 + 1\n\n[1] 2"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Hello World!\nMy name is Ruixuan Zhang (张 瑞轩), a Ph.D. student in Kyoto University, a member belonging to Ogata Lab.\nCurrently, I am hired as a JSPS DC2 Research Fellow.\nResearch Interests\nI am interested in host-virus interaction and the evolution behind their billion-year war. I use multi-omics to reveal the virus infection strategy.\nScholarship and Grants"
-  },
-  {
     "objectID": "posts/My-new-post/index.html",
     "href": "posts/My-new-post/index.html",
     "title": "My New Post",
@@ -35,10 +35,10 @@
     "text": "Preface\nIn bioinformatics, there are many pairwise comparison, such as Average Nucleotide Identity (ANI), Tetra-nucleotide similarity, patristic distance between tips of a tree. In this case, visualizing these data by heat-map with some clustering (like hierarchical cluster by pheatmap in R ) is useful.\n\n\nMain\nPairwise value matrix\nA heat-map in this case is basically a matrix whose rownames and colnames are identical (e.g. your list of virus, bacteria, etc ...) and the values in the table are ANI, TETRA, etc. Color is used to represent the value / intensity / etc ...\n\n\n\n\nSpecies 1\nSpecies 2\n\n\n\n\nSpecies 1\n1\n0.9\n\n\nSpecies 2\n0.9\n1\n\n\n…\n…\n…\n\n\n\nHeatmap is a good way to visualize the general trend but sometimes quantification of these values is needed, for example, to see the distribution of ANI values, such as 75%, 25%, mean. Thus, we need to generate a table of their pairwise relationships like table below.\n\n\n\nQuery\nTarget\nValue\n\n\n\n\nSpecies 1\nSpecies 1\n0.9\n\n\nSpecies 2\nSpecies 2\n1\n\n\n…\n…\n…\n\n\n\nMolten matrix by R\nThen, this table is easier to be handled and annotated as below. Such as we can know whether this value is generated from a interfamily comparison or a intrafamily comparison."
   },
   {
-    "objectID": "about.html#about",
-    "href": "about.html#about",
-    "title": "About",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "ChaoticNeutral",
     "section": "",
-    "text": "Hello World!\nMy name is Ruixuan Zhang (张 瑞轩), a Ph.D. student in Kyoto University, a member belonging to Ogata Lab.\nCurrently, I am hired as a JSPS DC2 Research Fellow.\nResearch Interests\nI am interested in host-virus interaction and the evolution behind their billion-year war. I use multi-omics to reveal the virus infection strategy.\nScholarship and Grants"
+    "text": "Post With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nJul 31, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nMy New Post\n\n\n\n\n\n\n\nR\n\n\nphylogeny\n\n\nadjacent matrix\n\n\n\n\n\n\n\n\n\n\n\nJul 31, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJul 28, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
   }
 ]

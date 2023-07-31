@@ -2,7 +2,7 @@
     "sortOrder": [
         {
             "columnIndex": 2,
-            "ascending": true
+            "ascending": false
         },
         {
             "columnIndex": 3,
@@ -13,5 +13,5 @@
             "ascending": false
         }
     ],
-    "path": "~/Project/Github/ChaoticNeutral/posts"
+    "path": "~/Project/Github/ChaoticNeutral"
 }
